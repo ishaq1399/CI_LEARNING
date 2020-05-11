@@ -13,14 +13,14 @@
 <!------ Include the above in your HEAD tag ---------->
 <style>
 html{
-    background: url(<?= base_url('assets/img/background.jpg'); ?>) top left #EEEEEE;
+    background: url('images/background.jpg') top left #EEEEEE;
     overflow: hidden;
 }
 /* body {
     background-color: white;
 } */
 body{ 
-    background: url(<?= base_url('assets/images/background.jpg'); ?>) top left; 
+    background: url('images/background.jpg') top left; 
     min-width: 1000px; 
     min-height: 900px; 
     text-align: left; 
@@ -102,7 +102,7 @@ body.no-side{
 }
 .profile {
     margin-top : 40px;
-    background-image: url(<?= base_url("assets/img/3.jpg"); ?>);
+    background-image: url("images/3.jpg");
 	background-size: 100%;
 	padding: 5%;
 	width: 200px;
