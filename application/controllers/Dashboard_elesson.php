@@ -59,12 +59,11 @@
         public function edit_user($id){
             $id = $this->uri->segment(3);
             $data['user']=$this->Admin_model->edit_data_user($id);
-            $data['level']=$this->Admin_model->getLevel()->result();
-            $data['blokir']=$this->Admin_model->getBlokir()->result();
+            $data['level']=$this->Admin_model->get_level();
             $this->template->tampil('crud/elesson/Dashboard/edit/edit_user',$data);
         }
         public function proses_edit_data_user(){
-            $id_admin=$this->input->post('id_admin');
+            $id=$this->input->post('id_admin');
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $nam_leng = $this->input->post('nama');

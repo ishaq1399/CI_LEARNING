@@ -5,7 +5,7 @@
                 <h1 class="h4 text-gray-900 mb-4">Tambah User</h1></div>
     <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_edit_data_user';?>" method="post">
         <div class="form-group">
-             <input type="h" class="form-control form-control-user" id="username" name="id_admin"  value="<?php echo $user['id_admin'];?>" require>
+             <input type="hidden" class="form-control form-control-user" id="username" name="id_admin"  value="<?php echo $user['id_admin'];?>" require>
         </div>
         <div class="form-group">
              <input type="text" class="form-control form-control-user" id="username" name="username"  value="<?php echo $user['username'];?>" require>
@@ -31,9 +31,11 @@
 
         <div class="form-group">
             <select id="level" class="form-control" name="level" require>
-                <option value="1">Admin</option>
-                <option value="2">Pengajar</option>
-                <option value="3">User</option>
+                <?php
+                    foreach ($level->result() as $value) {
+                     echo "<option value='$value->id_level'>$value->level</option>";
+                    }
+                ?>
             </select>
         </div>
         <div class="form-group">

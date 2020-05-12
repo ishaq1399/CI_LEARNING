@@ -1,5 +1,8 @@
 <?php 
     class Admin_model extends CI_Model{
+        public function __construct(){
+    	    parent::__construct();
+	    }
         //get All Attribute from tb Admin
         function getAll(){
             $this->db->select('*');
@@ -72,11 +75,11 @@
             $berhasil = $this->db->update('admin', $data);
             if($berhasil)
             {
-                redirect('Dashboard_elesson/'.$id.'?update=1','refresh');
+                redirect('Dashboard_elesson/'.'?update=1','refresh');
             }
             else
             {
-                redirect('Dashboard_elesson/'.$id.'?update=2','refresh');
+                redirect('Dashboard_elesson/'.'?update=2','refresh');
             }
         }
         function delete_data_user($id){
