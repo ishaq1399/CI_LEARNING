@@ -23,20 +23,14 @@
             $query = $this->db->get();
             return $query;
         }
-        //End of get Level
-
-
-
         //get Level order by ASC
         function get_level(){
             $this->db->order_by('id_level','ASC');
             return $this->db->from('tb_level')->get()->result();
         }
-        function get_blokir(){
-            $this->db->order_by('id_blokir','ASC');
-            return $this->db->from('blokir')->get()->result();
-        }
         //End get Level by ASC
+        //End of get Level
+        
 
 
 
@@ -47,6 +41,12 @@
             $query = $this->db->get();
             return $query;
         }
+        //get Blokir from tb_blokir
+        function get_blokir(){
+            $this->db->order_by('id_blokir','ASC');
+            return $this->db->from('blokir')->get()->row_array();
+        }
+        //End Of get Blokir
         //End of get Blokir
 
 

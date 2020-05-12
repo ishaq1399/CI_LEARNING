@@ -20,7 +20,7 @@
              <input type="text" class="form-control form-control-user" id="nama" name="nama" value="<?php echo $row->nama_lengkap;?>" require>
         </div>
         <div class="form-group">
-             <textarea name="alamat" id="alamat" cols="65" rows="10" value="<?php echo $row->alamat;?>" require></textarea>
+             <textarea name="alamat" id="alamat" cols="65" rows="10" require><?php echo $row->alamat;?></textarea>
         </div>
         <div class="form-group">
              <input type="number" class="form-control form-control-user" id="telp" name="telp" value="<?php echo $row->no_telp;?>" require>
@@ -42,12 +42,19 @@
             </select>
         </div>
         <div class="form-group">
-        <?php
-            foreach($blokir as $in){
-            ?>
-             <input type="text" class="form-control form-control-user" id="blokir" name="blokir" value="<?php echo $in->blokir;?>" readonly="readonly">
-             <?php 
-            }
+            <?php 
+                if($blokir['blokir'] == "Ya"){
+                    echo "<select name='blokir' class='form-control' id='blokir'>
+                        <option value='1' selected>Ya</option>
+                        <option value='2'>Tidak</option>
+                        </select>";
+                }
+                else{
+                    echo "<select name='blokir' class='form-control' id='blokir'>
+                        <option value='1'>Ya</option>
+                        <option value='2' selected>Tidak</option>
+                        </select>";
+                }
             ?>
         </div>
         
