@@ -32,6 +32,10 @@
             $this->db->order_by('id_level','ASC');
             return $this->db->from('tb_level')->get()->result();
         }
+        function get_blokir(){
+            $this->db->order_by('id_blokir','ASC');
+            return $this->db->from('blokir')->get()->result();
+        }
         //End get Level by ASC
 
 
@@ -64,11 +68,8 @@
         function save_data_user($data,$table){
             $this->db->insert($table,$data);
         }
-        function edit_data_user($id){
-            $this->db->select('*');
-		    $this->db->from('admin');
-		    $this->db->where('id_admin', $id);
-		    return $this->db->get()->row_array();
+        function edit_data_user($where,$table){
+            return $this->db->get_where($table,$where);
         }
         function update_data_user($id, $data){
             $this->db->where('id_admin', $id);
