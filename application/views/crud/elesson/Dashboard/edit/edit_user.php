@@ -33,24 +33,40 @@
         </div>
 
         <div class="form-group">
-            <select id="level" class="form-control" name="level" require>
-                <?php 
-                    foreach ($level as $nilai){
-                        echo "<option value='$nilai->id_level'>$nilai->level</option>";
-                    }
-                ?>
-            </select>
+        <?php 
+                if($level['level'] == "admin"){
+                    echo "<select name='level' class='form-control' id='level'>
+                        <option value='1' selected>Admin</option>
+                        <option value='2'>Pengajar</option>
+                        <option value='3'>User</option>
+                        </select>";
+                }
+                else if($level['level'] == "pengajar"){
+                    echo "<select name='level' class='form-control' id='level'>
+                    <option value='1'>Admin</option>
+                    <option value='2' selected>Pengajar</option>
+                    <option value='3'>User</option>
+                        </select>";
+                }
+                else if($level['level'] == "user"){
+                    echo "<select name='level' class='form-control' id='level'>
+                    <option value='1'>Admin</option>
+                    <option value='2'>Pengajar</option>
+                    <option value='3' selected> User</option>
+                        </select>";
+                }
+            ?>
         </div>
         <div class="form-group">
             <?php 
                 if($blokir['blokir'] == "Ya"){
-                    echo "<select name='blokir' class='form-control' id='blokir'>
+                    echo "<select name='blokir' class='form-control' id='blokir' disabled>
                         <option value='1' selected>Ya</option>
                         <option value='2'>Tidak</option>
                         </select>";
                 }
                 else{
-                    echo "<select name='blokir' class='form-control' id='blokir'>
+                    echo "<select name='blokir' class='form-control' id='blokir' disabled>
                         <option value='1'>Ya</option>
                         <option value='2' selected>Tidak</option>
                         </select>";

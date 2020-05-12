@@ -26,7 +26,7 @@
         //get Level order by ASC
         function get_level(){
             $this->db->order_by('id_level','ASC');
-            return $this->db->from('tb_level')->get()->result();
+            return $this->db->from('tb_level')->get()->row_array();
         }
         //End get Level by ASC
         //End of get Level
