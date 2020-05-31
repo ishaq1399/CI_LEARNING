@@ -6,28 +6,39 @@
     <body>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables User</h6></div>
+            <?php if($getLevel == 1 ){
+                echo '<h6 class="m-0 font-weight-bold text-primary">DataTables Admin</h6></div>';
+            }
+                else if($getLevel == 2 ){
+                    echo '<h6 class="m-0 font-weight-bold text-primary">Data Pengajar</h6></div>';
+            }       else if($getLevel == 3 ){
+                        echo '<h6 class="m-0 font-weight-bold text-primary">DataTables User</h6></div>';
+            } ?>
+            
                 <div class="card-body"><div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr><th>No</th>
+                        <?php
+                                        if($getLevel == 1 ){
+                            echo "<tr><th>No</th>
                                 <th>Username</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Level</th>
-                                <th>Status</th>
-                                <th>Aksi</th></tr>
+                                <th>Blokir</th>
+                                <th>Aksi</th></tr>";
+                                } ?>
                         </thead>
-                        <tfoot><tr><th>No</th>
+                        <!-- <tfoot><tr><th>No</th>
                                 <th>Username</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Level</th>
                                 <th>Status</th>
                                 <th>Aksi</th></tr>
-                        </tfoot>
+                        </tfoot> -->
                         <tbody>
-                            <?php $no=1;
+                            <?php if($getLevel == 1 ){ $no=1;
                                     foreach($user as $baris){ 
                             ?>
                             <tr><td><?php echo $no++ ?></td>
@@ -46,6 +57,18 @@
                                     ?>
                                     </td></tr>
 
+                                    <?php } ?>
+                                    <?php } ?>
+                                    
+                            <?php if($getLevel == 2 )
+                            { 
+                                // $no=1;
+                                // foreach($pengajar as $baris)
+                                { 
+                            ?>
+                            <h1>Selamat Datang <?php echo $getUser ?></h1>
+
+                                    <?php } ?>
                                     <?php } ?>
                         </tbody>
                     </table>

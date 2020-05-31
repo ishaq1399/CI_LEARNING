@@ -149,9 +149,9 @@ body.no-side{
                             <div class="col-sm-12 controls" style="margin-bottom:20px">
                                 <button type="submit" href="#" class="btn btn-primary col-sm-offset-4 col-md-4"><i class="glyphicon glyphicon-log-in"></i> Log in</button>   
                             </div>
-                            <div class="col-sm-12 controls">
+                            <!-- <div class="col-sm-12 controls">
                             <a href="registrasi.php"><button type="button" class="btn btn-primary col-sm-offset-4 col-md-4"><i class="glyphicon glyphicon-pencil"></i> Register</button></a>
-                        </div>
+                        </div> -->
                         </div>
                         
                     </form>     

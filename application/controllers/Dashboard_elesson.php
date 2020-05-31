@@ -22,7 +22,7 @@
         //============================== tambah data user ===========================//
         public function tambah_data_user(){
             // $data['tambah'] = $this->Admin_model->getAll()->result();
-            $data['level'] = $this->Admin_model->get_level();
+            $data['level'] = $this->Admin_model->getLevel()->result();
             $data['blokir'] = $this->Admin_model->getBlokir()->result();
             $this->template->tampil('crud/elesson/Dashboard/tambah/tambah_user',$data);
         }
@@ -103,6 +103,26 @@
           }
         //================================ End Of Delete User =======================//
         //================================ End Of View All User ======================//
+
+        
+        //================================ Awal Modul ================================//
+
+          public function viewModul(){
+              $data ['modul'] = $this->Admin_model->getModul()->result();
+              $this->template->tampil('Pengajar/modul',$data);
+          }
+
+        //================================ End Of Modul =============================//
+
+
+        //================================ Awal Modul ================================//
+
+        public function viewTopik(){
+            $data ['topik'] = $this->Admin_model->getTopik()->result();
+            $this->template->tampil('Pengajar/topik',$data);
+        }
+
+      //================================ End Of Modul =============================//
 
         //================================ Logout ====================================//
         public function logout(){

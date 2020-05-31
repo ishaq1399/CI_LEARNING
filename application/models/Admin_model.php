@@ -12,6 +12,7 @@
             $query = $this->db->get();
             return $query;
         }
+        
         // End of get All
 
 
@@ -95,6 +96,23 @@
                 redirect('Dashboard_elesson/'.'?delete=2'.'refresh');
             }
         }
+        //=================================== Awal Get Modul ======================//
+        function getModul(){
+            $this->db->select('*');
+            $this->db->from('modul');
+            $query = $this->db->get();
+            return $query;
+        }
+        //=================================== Akhir Get Modul ======================//
+
+        //=================================== Awal Get Topik ======================//
+        function getTopik(){
+            $this->db->select('*');
+            $this->db->from('topik_quiz');
+            $query = $this->db->get();
+            return $query;
+        //=================================== Akhir Get Topik ======================//
     }
+}
 
 ?>

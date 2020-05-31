@@ -60,13 +60,13 @@
         <div class="form-group">
             <?php 
                 if($blokir['blokir'] == "Ya"){
-                    echo "<select name='blokir' class='form-control' id='blokir' disabled>
+                    echo "<select name='blokir' class='form-control' id='blokir' >
                         <option value='1' selected>Ya</option>
                         <option value='2'>Tidak</option>
                         </select>";
                 }
                 else{
-                    echo "<select name='blokir' class='form-control' id='blokir' disabled>
+                    echo "<select name='blokir' class='form-control' id='blokir' >
                         <option value='1'>Ya</option>
                         <option value='2' selected>Tidak</option>
                         </select>";
