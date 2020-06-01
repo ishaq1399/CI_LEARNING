@@ -98,8 +98,8 @@
 				}?>
 				<?php 
 				if($getLevel==3){
-				echo '<a class="collapse-item" href="'.base_url('Dashboard_elesson/viewModul').'">Modul</a>';
-				echo '<a class="collapse-item" href="'.base_url('Dashboard_elesson/viewTopik').'">Topik</a>';
+				echo '<a class="collapse-item" href="'.base_url('Dashboard_elesson/viewModulSiswa').'">Modul</a>';
+				echo '<a class="collapse-item" href="'.base_url('Dashboard_elesson/viewTopikSiswa').'">Topik</a>';
 				}?>
 				<?php echo '<a class="collapse-item active" href="'.base_url('Dashboard_elesson/logout').'">Logout</a>';?>
 			</div>

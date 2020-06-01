@@ -6,7 +6,7 @@
     <body>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Siswa</h6></div>
+                <h6 class="m-0 font-weight-bold text-primary">Data Pengajar</h6></div>
                 <div class="card-body"><div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
@@ -46,16 +46,18 @@
                                             echo '<a href="'.base_url('Dashboard_elesson/Hapus_Topik/'.$baris->id_tq).'" class="fa fa-times">&nbsp;</a>';
                                         }
                                     ?>
+                                    <?php
+                                        if($getLevel==3){
+                                            echo '<a href="'.base_url('Dashboard_elesson/Show/'.$baris->id_tq).'" class="fa fa-eye">&nbsp;</a>';
+                                        }
+                                        
+                                    ?>
                                     </td></tr>
 
                                     <?php } ?>
                         </tbody>
                     </table>
-                </div>
-                <a href="<?php echo base_url('Dashboard_elesson/AddTopik')?>" class="btn btn-success btn-icon-split">
-                <span class="text">Tambah Data</span>
-                </a>
-                <div>
+               
                 <?php
             if($this->input->get('delete')==1)
             {

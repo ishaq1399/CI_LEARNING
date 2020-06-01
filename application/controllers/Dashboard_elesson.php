@@ -113,6 +113,10 @@
               $data ['modul'] = $this->Admin_model->getAllModul()->result();
               $this->template->tampil('crud/elesson/Pengajar/modul',$data);
           }
+          public function viewModulSiswa(){
+            $data ['modul'] = $this->Admin_model->getAllModul()->result();
+            $this->template->tampil('crud/elesson/Pengajar/modulSiswa',$data);
+            }
           //============================= End Of All Modul ===========================//
           
           public function AddModul(){
@@ -197,6 +201,10 @@
         public function viewTopik(){
             $data ['topik'] = $this->Admin_model->getAllTopik()->result();
             $this->template->tampil('crud/elesson/Pengajar/topik',$data);
+        }
+        public function viewTopikSiswa(){
+            $data ['topik'] = $this->Admin_model->getAllTopik()->result();
+            $this->template->tampil('crud/elesson/Pengajar/topikSiswa',$data);
         }
         public function AddTopik(){
             $data['kelas'] = $this->Admin_model->getKelas()->result();
