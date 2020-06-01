@@ -13,7 +13,10 @@
                             <tr><th>No</th>
                                 <th>Judul</th>
                                 <th>Tanggal</th>
+                                <th>Kelas</th>
+                                <th>Mata Pelajaran</th>
                                 <th>Waktu</th>
+                                <th>Pembuat</th>
                                 <th>Info</th>
                                 <th>Opsi</th></tr>
                         </thead>
@@ -30,14 +33,22 @@
                             <tr><td><?php echo $no++ ?></td>
                                 <td><?php echo $baris->judul ?></td>
                                 <td><?php echo $baris->tgl_buat ?></td>
+                                <td><?php echo $baris->kelas?></td>
+                                <td><?php echo $baris->mata_pelajaran?></td>
                                 <td><?php echo $baris->waktu_pengerjaan ?></td>
+                                <td><?php echo $baris->status?></td>
                                 <td><?php echo $baris->info ?></td>
                                 <td>
                                     <?php
                                         if($getLevel==2){
-                                            echo '<a href="'.base_url('Mahasiswa/edit/'.$baris->id_tq).'" class="fa fa-edit">&nbsp;</a>';
+                                            echo '<a href="'.base_url('Dashboard_elesson/Edit_Topik/'.$baris->id_tq).'" class="fa fa-edit">&nbsp;</a>';
                                             echo " ";
-                                            echo '<a href="'.base_url('Mahasiswa/hapus/'.$baris->id_tq).'" class="fa fa-times">&nbsp;</a>';
+                                            echo '<a href="'.base_url('Dashboard_elesson/Hapus_Topik/'.$baris->id_tq).'" class="fa fa-times">&nbsp;</a>';
+                                        }
+                                    ?>
+                                    <?php
+                                        if($getLevel==3){
+                                            echo '<a href="'.base_url('Dashboard_elesson/Show/'.$baris->id_tq).'" class="fa fa-eye">&nbsp;</a>';
                                         }
                                     ?>
                                     </td></tr>
@@ -46,9 +57,26 @@
                         </tbody>
                     </table>
                 </div>
-                <a href="Mahasiswa/add" class="btn btn-success btn-icon-split">
-                <span class="text">Tambah Data</span>
-                </a>
+                <?php
+                if($getUser==2){
+                echo "<a href='<?php echo base_url('Dashboard_elesson/AddTopik')?>' class='btn btn-success btn-icon-split'>;
+                <span class='text'>Tambah Data</span>
+                </a>";
+                }?>
+                <div>
+                <?php
+            if($this->input->get('delete')==1)
+            {
+				echo "<script>alert('Data Berhasil Dihapus!');
+				</script>";
+            }
+            else if($this->input->get('delete')==2)
+            {
+                echo "<script>alert('Data Anda Gagal Dihapus !');
+				</script>";
+            }
+			?>
+                </div>
             </div>
         </div>
     </body>

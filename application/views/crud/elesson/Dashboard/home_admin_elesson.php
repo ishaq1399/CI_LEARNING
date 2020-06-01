@@ -29,14 +29,6 @@
                                 <th>Aksi</th></tr>";
                                 } ?>
                         </thead>
-                        <!-- <tfoot><tr><th>No</th>
-                                <th>Username</th>
-                                <th>Nama</th>
-                                <th>Alamat</th>
-                                <th>Level</th>
-                                <th>Status</th>
-                                <th>Aksi</th></tr>
-                        </tfoot> -->
                         <tbody>
                             <?php if($getLevel == 1 ){ $no=1;
                                     foreach($user as $baris){ 
@@ -62,11 +54,19 @@
                                     
                             <?php if($getLevel == 2 )
                             { 
-                                // $no=1;
-                                // foreach($pengajar as $baris)
+                            
                                 { 
                             ?>
-                            <h1>Selamat Datang <?php echo $getUser ?></h1>
+                            <h1>Selamat Datang <?php echo $getUser ?> Sebagai Pengajar</h1>
+
+                                    <?php } ?>
+                                    <?php } ?>
+                            <?php if($getLevel == 3 )
+                            { 
+                            
+                                { 
+                            ?>
+                            <h1>Selamat Datang <?php echo $getUser ?> Sebagai User</h1>
 
                                     <?php } ?>
                                     <?php } ?>

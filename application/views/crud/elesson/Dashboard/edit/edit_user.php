@@ -8,7 +8,7 @@
             ?>
         <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_edit_data_user';?>" method="post">
         <div class="form-group">
-             <input type="hidden" class="form-control form-control-user" id="username" name="id_admin"  value="<?php echo $row->id_admin;?>" require>
+             <input type="hidden" class="form-control form-control-user" id="id_admin" name="id_admin"  value="<?php echo $row->id_admin;?>" require>
         </div>
         <div class="form-group">
              <input type="text" class="form-control form-control-user" id="username" name="username"  value="<?php echo $row->username;?>" require>
