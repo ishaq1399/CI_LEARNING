@@ -12,6 +12,13 @@
             $query = $this->db->get();
             return $query;
         }
+
+        //get admin by asc
+        function get_admin(){
+            $this->db->order_by('id_admin','ASC');
+            return $this->db->from('admin')->get()->row_array();
+        }
+        //End get admin by asc
         
         // End of get All
 

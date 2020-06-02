@@ -3,7 +3,7 @@
         <div class="p-5">
             <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Tambah User</h1></div>
-    <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_tambah_data_modul';?>" method="post">
+    <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_tambah_data_modul';?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
              <input type="text" class="form-control form-control-user" id="nama_modul" name="nama_modul" placeholder="Nama Modul" require>
         </div>
@@ -45,6 +45,9 @@
         </div>
         <div class="form-group">
             <input type="text" class="form-control form-control-user" id="seo" name="seo" placeholder="Linked Seo" require>
+        </div>
+        <div class="form-group">
+        Pilih Modul&nbsp;:&nbsp;<input type="file" id="modul" name="modul" require>
         </div>
                 <input type="submit" class="btn btn-success btn-icon-split" name="submit" value="Tambah">
             </form>

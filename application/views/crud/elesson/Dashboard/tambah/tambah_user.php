@@ -3,7 +3,7 @@
         <div class="p-5">
             <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Tambah User</h1></div>
-    <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_tambah_data_user';?>" method="post">
+    <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_tambah_data_user';?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
              <input type="text" class="form-control form-control-user" id="username" name="username" placeholder="Username Maximal 10 Character" require>
         </div>
@@ -23,7 +23,7 @@
              <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="E-Mail" require>
         </div>
         <div class="form-group">
-            <select id="level" class="form-control" name="level" require>
+        Pilih Akses&nbsp;:&nbsp;<select id="level" class="form-control" name="level" require>
                 <?php
                     foreach ($level as $value) {
                      echo "<option value='$value->id_level'>$value->level</option>";
@@ -32,7 +32,7 @@
             </select>
         </div>
         <div class="form-group">
-            <select id="blokir" class="form-control" name="blokir" require>
+        Pilih Blokir&nbsp;:&nbsp;<select id="blokir" class="form-control" name="blokir" require>
                 <?php
                     foreach ($blokir as $value) {
                      echo "<option value='$value->id_blokir'>$value->blokir</option>";
@@ -41,8 +41,12 @@
             </select>
         </div>
         <div class="form-group">
-             <input type="text" class="form-control form-control-user" id="id_sess" name="id_session" placeholder="Id Session" require>
+        Pilih Session&nbsp;:&nbsp;<input type="text" class="form-control form-control-user" id="id_sess" name="id_session" placeholder="Id Session" require>
         </div>
+        <div class="form">
+        Pilih Foto&nbsp;:&nbsp;<input type="file" id="photo" name="photo" require>
+        </div>
+        <br>
                 <input type="submit" class="btn btn-success btn-icon-split" name="submit" value="Tambah">
             </form>
             <hr>

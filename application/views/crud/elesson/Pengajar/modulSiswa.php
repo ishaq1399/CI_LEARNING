@@ -15,7 +15,7 @@
                                 <th>Link</th>
                                 <th>Publish</th>
                                 <th>Aktif</th>
-                                <th>Status</th>
+                                <th>Pembuat</th>
                                 <th>Pilihan</th></tr>
                         </thead>
                         <tbody>
@@ -37,11 +37,15 @@
                                         }
                                     ?>
                                     <?php
-                                        if($getLevel==3){
-                                            echo '<a href="'.base_url('Dashboard_elesson/Show/'.$baris->id_modul).'" class="fa fa-eye">&nbsp;</a>';
-                                        }
+                                        if($getLevel==3){?>
+                                            
+                                            <a href="<?php echo base_url().'Dashboard_elesson/downloadModul/'.$baris->file_materi;?>" class="fa fa-eye"><?php echo $baris->file_materi;?></a>
                                         
-                                    ?>
+                                        <?php
+                                            }
+                                        ?>
+                                        
+                                    
                                     </td></tr>
 
                                     <?php } ?>

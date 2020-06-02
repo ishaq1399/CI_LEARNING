@@ -6,7 +6,7 @@
         <?php foreach ($user as $row)
         {
             ?>
-        <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_edit_data_user';?>" method="post">
+        <form class="user" action="<?php echo base_url().'Dashboard_elesson/proses_edit_data_user';?>" method="post" enctype="multipart/form-data">
         <div class="form-group">
              <input type="hidden" class="form-control form-control-user" id="id_admin" name="id_admin"  value="<?php echo $row->id_admin;?>" require>
         </div>
@@ -73,7 +73,9 @@
                 }
             ?>
         </div>
-        
+        <div class="form-group">
+        Pilih Foto&nbsp;:&nbsp;<input type="file" id="photo" name="photo" require>
+        </div>
                 <input type="submit" class="btn btn-success btn-icon-split" name="submit" value="Update">
             </form>
             <?php 

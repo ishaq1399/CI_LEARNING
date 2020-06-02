@@ -6,6 +6,7 @@
             parent::__construct();
             // $this->load->library('table');
             $this->load->model('Admin_model');
+            $this->load->helper('download');
         }
 
 
@@ -14,6 +15,7 @@
         public function index(){
             $data['user'] = $this->Admin_model->getAllAdmin()->result();
             $data['level'] = $this->Admin_model->getLevel()->result();
+            $data['userid'] = $this->Admin_model->get_admin();
             $this->template->tampil('crud/elesson/Dashboard/home_admin_elesson',$data);
         }
 
@@ -48,9 +50,28 @@
                 'blokir'=>$blokir,
                 'id_session'=>$id_sess
             );
+            if (!empty($_FILES['photo']['name'])) {
+                $upload = $this->do_upload();
+                $data['foto'] = $upload;
+            }
             $this->Admin_model->save_data_user($data,'admin');
             redirect('Dashboard_elesson',$data);
         }
+        private function do_upload(){
+		    $config['upload_path'] 		= './upload/foto/';
+		    $config['allowed_types'] 	= 'gif|jpg|png|jpeg';
+		    $config['max_size'] 			= 2048;
+		    $config['max_widht'] 			= 1000;
+		    $config['max_height']  		= 1000;
+		    $config['file_name'] 			= round(microtime(true)*1000);
+            $this->load->library('upload', $config);
+            
+            if (!$this->upload->do_upload('photo')) {
+			        $this->session->set_flashdata('msg', $this->upload->display_errors('',''));
+			        redirect('Dashboard_elesson');
+		        }
+		        return $this->upload->data('file_name');
+	    }
         //================================ End Of tambah data user ===================//
 
 
@@ -87,11 +108,28 @@
                 'blokir'=>$blokir,
                 'id_session'=>$id_sess
             );
-            // $where = array(
-            //     'id_admin'=>$id_admin
-            // );
+            if (!empty($_FILES['photo']['name'])) {
+                $upload = $this->edit_do_upload();
+                $data['foto'] = $upload;
+            }
             $this->Admin_model->update_data_user($id,$data);
+            redirect('Dashboard_elesson',$data);
         }
+        private function edit_do_upload(){
+		    $config['upload_path'] 		= './upload/foto/';
+		    $config['allowed_types'] 	= 'gif|jpg|png|jpeg';
+		    $config['max_size'] 			= 2048;
+		    $config['max_widht'] 			= 1000;
+		    $config['max_height']  		= 1000;
+		    $config['file_name'] 			= round(microtime(true)*1000);
+            $this->load->library('upload', $config);
+            
+            if (!$this->upload->do_upload('photo')) {
+			        $this->session->set_flashdata('msg', $this->upload->display_errors('',''));
+			        redirect('Dashboard_elesson');
+		        }
+		        return $this->upload->data('file_name');
+	    }
         //================================ End Of Edit User =========================//
 
 
@@ -144,9 +182,26 @@
                 'urutan'=>$urutan,
                 'link_seo'=>$seo
             );
+            if (!empty($_FILES['modul']['name'])) {
+                $upload = $this->upload_Modul();
+                $data['file_materi'] = $upload;
+            }
             $this->Admin_model->save_data_modul($data,'modul');
             redirect('Dashboard_elesson/viewModul',$data);
         }
+            private function upload_Modul(){
+		        $config['upload_path'] 		= './upload/modul';
+		        $config['allowed_types'] 	= 'pdf|xls|docx|ppt';
+		        $config['max_size'] 			= 2048;
+		        $config['file_name'] 			= round(microtime(true)*1000);
+ 
+		        $this->load->library('upload', $config);
+		        if (!$this->upload-> do_upload('modul')) {
+			        $this->session->set_flashdata('msg', $this->upload->display_errors('',''));
+			        redirect('Dashboard_elesson/viewModul');
+		        }
+		    return $this->upload->data('file_name');
+	        }
 
         //================================ Edit Modul ================================//
         public function Edit_Modul($id){
@@ -177,10 +232,31 @@
                 'urutan'=>$urutan,
                 'link_seo'=>$seo
             );
-            // $where = array(
-            //     'id_admin'=>$id_admin
-            // );
+            if (!empty($_FILES['modul']['name'])) {
+                $upload = $this->edit_upload_Modul();
+                $data['file_materi'] = $upload;
+            }
             $this->Admin_model->update_data_modul($id,$data);
+            redirect('Dashboard_elesson/viewModul',$data);
+        }
+        private function edit_upload_Modul(){
+            $config['upload_path'] 		= './upload/modul';
+            $config['allowed_types'] 	= 'pdf|xls|docx|ppt|pptx';
+            $config['max_size'] 			= 2048;
+            $config['file_name'] 			= round(microtime(true)*1000);
+
+            $this->load->library('upload', $config);
+            if (!$this->upload-> do_upload('modul')) {
+                $this->session->set_flashdata('msg', $this->upload->display_errors('',''));
+                redirect('Dashboard_elesson/viewModul');
+            }
+        return $this->upload->data('file_name');
+        }
+
+        public function downloadModul(){
+            $name = $this->uri->segment(3);
+            $data = file_get_contents(base_url().'upload/modul/'.$name);
+            force_download($name, $data);
         }
         //================================ End Of Edit Modul =========================//
 

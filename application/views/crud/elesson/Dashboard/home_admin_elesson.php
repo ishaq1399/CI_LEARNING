@@ -26,6 +26,7 @@
                                 <th>Alamat</th>
                                 <th>Level</th>
                                 <th>Blokir</th>
+                                <th>Foto</th>
                                 <th>Aksi</th></tr>";
                                 } ?>
                         </thead>
@@ -39,6 +40,7 @@
                                 <td><?php echo $baris->alamat?></td>
                                 <td><?php echo $baris->level?></td>
                                 <td><?php echo $baris->blokir?></td>
+                                <td><img  src="upload/foto/<?php echo $baris->foto?>"></td>
                                 <td>
                                     <?php
                                         if($getLevel == 1 ){
@@ -52,22 +54,19 @@
                                     <?php } ?>
                                     <?php } ?>
                                     
-                            <?php if($getLevel == 2 )
-                            { 
-                            
-                                { 
+                            <?php if($getLevel == 2 ){ 
+                                    {
                             ?>
                             <h1>Selamat Datang <?php echo $getUser ?> Sebagai Pengajar</h1>
-
+                            <img  src="upload/foto/<?php echo $userid['foto']?>">
                                     <?php } ?>
                                     <?php } ?>
-                            <?php if($getLevel == 3 )
-                            { 
+                            <?php if($getLevel == 3 ){ 
                             
                                 { 
                             ?>
                             <h1>Selamat Datang <?php echo $getUser ?> Sebagai User</h1>
-
+                            <img  src="upload/foto/<?php echo $userid['foto']?>">
                                     <?php } ?>
                                     <?php } ?>
                         </tbody>

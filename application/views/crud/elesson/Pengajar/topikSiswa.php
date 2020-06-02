@@ -18,7 +18,7 @@
                                 <th>Waktu</th>
                                 <th>Pembuat</th>
                                 <th>Info</th>
-                                <th>Opsi</th></tr>
+                                </tr>
                         </thead>
                         <!-- <tfoot><tr><th>No</th>
                                 <th>Username</th>
@@ -38,21 +38,7 @@
                                 <td><?php echo $baris->waktu_pengerjaan ?></td>
                                 <td><?php echo $baris->status?></td>
                                 <td><?php echo $baris->info ?></td>
-                                <td>
-                                    <?php
-                                        if($getLevel==2){
-                                            echo '<a href="'.base_url('Dashboard_elesson/Edit_Topik/'.$baris->id_tq).'" class="fa fa-edit">&nbsp;</a>';
-                                            echo " ";
-                                            echo '<a href="'.base_url('Dashboard_elesson/Hapus_Topik/'.$baris->id_tq).'" class="fa fa-times">&nbsp;</a>';
-                                        }
-                                    ?>
-                                    <?php
-                                        if($getLevel==3){
-                                            echo '<a href="'.base_url('Dashboard_elesson/Show/'.$baris->id_tq).'" class="fa fa-eye">&nbsp;</a>';
-                                        }
-                                        
-                                    ?>
-                                    </td></tr>
+                                </tr>
 
                                     <?php } ?>
                         </tbody>

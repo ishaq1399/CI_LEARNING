@@ -15,7 +15,8 @@
                                 <th>Link</th>
                                 <th>Publish</th>
                                 <th>Aktif</th>
-                                <th>Status</th>
+                                <th>Pembuat</th>
+                                <th>Modul</th>
                                 <th>Pilihan</th></tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,7 @@
                                 <td><?php echo $baris->publish ?></td>
                                 <td><?php echo $baris->aktif ?></td>
                                 <td><?php echo $baris->status ?></td>
+                                <td><?php echo $baris->file_materi ?></td>
                                 <td>
                                     <?php
                                         if($getLevel==2){
